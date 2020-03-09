@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { Button} from 'react-native';
 
 class ButtonAction extends Component {
   constructor(){
@@ -9,18 +9,23 @@ class ButtonAction extends Component {
     };
   }
 
-  changeColor=() => {
+  changeColor =() => {
     this.setState({
       color: '#509191',
     })
   }
 
+  whenPressed = () => {
+    this.changeColor()
+    this.props.onButtonPress()
+  }
+
   render(){ 
     return(
-      <Button
-        color={this.state.color}
-        title="Click Me"
-        onPress={this.changeColor}/>
+        <Button
+          color={this.state.color}
+          title="Click Me"
+          onPress={this.whenPressed}/>
     );
   }
 }

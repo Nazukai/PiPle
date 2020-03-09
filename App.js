@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import ButtonAction from './components/ButtonAction';
 
 export default class App extends React.Component{
@@ -7,26 +7,25 @@ export default class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      name: 'Messenger',
+      name: 'Messenger'
     };
   }
 
-  change=() => {
+
+  change = () => {
     console.log("changed")
     this.setState({
-      name: 'PiPle',
+      name: 'PiPle'
     })
   }
 
   render(){
-  return (
-    <View style={styles.container}>
-      <Text>I like {this.state.name}</Text>
-      <div onClick={this.change}>
-        <ButtonAction/>
-      </div>
-    </View>
-  );
+    return (
+      <View style={styles.container}>
+        <Text>I like {this.state.name}</Text>
+        <ButtonAction onButtonPress={this.change}/>
+      </View>
+    );
   }
 }
 
